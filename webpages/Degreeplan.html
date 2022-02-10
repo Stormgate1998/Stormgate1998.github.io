@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is a Degree plan</title>
+    <style>
+        .column  {
+            float: left;
+            width: 50%;
+        }
+        .row::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+      /* element selctor */
+      li {
+        background-color: rgb(0,100,200);
+      }
+
+      /* class selector */
+      .best {
+        border: solid rgb(114, 11, 11) 2px;
+      }
+
+      /* id selctor */
+      #main-content {
+        margin: 4em;
+        color: rgb(255,255,0)
+      }
+    </style>
+</head>
+<body>
+    <a href = "Test.html" style ="background-color: goldenrod">Return home</a>
+    <header>
+        <h1 class="best">Bachelor's in Rodeo Clowning
+        </h1>
+        </header>
+        <main>
+            
+         <section id="main-content">
+            <div class="row">
+                <div class="column"><h2>Semester 1</h2>
+                    <ul>
+                        <li>
+                            Introductory Stage Makeup (3 credits)
+                        </li>
+                        <li>Beginning Equestrian Training (lab- 5 credits)</li>
+                        <li>Math 1050 (3 credits)</li>
+                        <li>Insurance 1010 (5 credits)</li></div>
+                <div class="column"><h2>Semester 2</h2>
+                    <ul>
+                        <li>
+                            Introduction to Rodeo Clowning (3 credits)
+                        </li>
+                        <li>
+                            Beginning Rodeo Clowning (3 credits)
+                        </li>
+                        <li>
+                            Beginning Cow handling (5 credits)
+                        </li>
+                    </ul>
+                </div>
+              </div>
+             
+             </ul>
+         </section>
+        </main>
+</body>
+</html>
