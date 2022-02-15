@@ -18,7 +18,6 @@ while (sticks > 0) {
         sticks = sticks - p2;
         player = true;
     }
-
 }
 if (player) {
     alert("Player 1 wins!");
