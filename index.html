@@ -1,33 +1,59 @@
 <!DOCTYPE html>
+<script type="text/javascript">
+    var player = false;
+    var sticks = prompt("What is the number of sticks?");
+    while (sticks > 0) {
+        let p1 = prompt(sticks, "Player 1, choose a number between 1 and 3");
+        sticks = sticks - p1;
+        player = false;
+        if (sticks > 0) {  
+            let p2 = prompt(sticks, "Player 2, choose a number between 1 and 3");
+            sticks = sticks - p2;
+            player = true;
+        }
+
+    }
+    if (player) {
+        alert("Player 1 wins!");
+    } else {
+        alert("Player 2 wins!");
+    }
+</script>
+
 <style>
     body {
         background-image: url("stormgate_logo.png");
-        background-repeat:repeat;
+        background-repeat: repeat;
         background-color: rgb(0,0,0);
         color: rgb(200,200,200);
     }
+
     p {
         background-color: black;
         border: 1px solid black;
         width: fit-content;
         block-size: fit-content;
     }
-    p:hover {
-        color: aqua;
-    }
-    p:active{
-        font-family: 'Comic Sans MS';
-    }
-    a{
-        color: orange;
-    }
-    a:hover{
-        font-family: Wingdings;
-    }
-    a:visited{
+
+        p:hover {
+            color: aqua;
+        }
+
+        p:active {
+            font-family: 'Comic Sans MS';
+        }
+
+    a {
         color: orange;
     }
 
+        a:hover {
+            font-family: Wingdings;
+        }
+
+        a:visited {
+            color: orange;
+        }
 </style>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
