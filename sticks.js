@@ -2,7 +2,7 @@
 var player = false;
 var p1;
 var p2;
-var sticks = prompt("What is the number of sticks?");
+var sticks = prompt("What is the number of sticks you want to play with?");
 while (sticks > 0) {
     p1 = 4;
     p2 = 4;
