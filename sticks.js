@@ -31,7 +31,7 @@ while (sticks > 0) {
             if (wronginfo) {
                 alert("This is an invalid input. Please choose a number between 1 and 3");
             }
-            p2 = prompt(sticks, "Player 2, choose a number between 1 and 3");
+            p2 = prompt(`${sticks} Player 2, choose a number between 1 and 3`);
             if (p1 <= 3 && p1 > 0) {
                 wronginfo = true;
                 userinput = !userinput;
@@ -46,3 +46,5 @@ if (player) {
 } else {
     alert("Player 2 wins!");
 }
+//put it into the html file
+//extract stuff to methods to remove repeating
