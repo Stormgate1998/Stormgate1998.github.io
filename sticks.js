@@ -26,12 +26,12 @@ while (sticks > 0) {
     let p2 = 4;
     p1 = getInput(p1, player);
     sticks = sticks - p1;
-    player = false;
+    player = true;
 
     if (sticks > 0) {
         p2 = getInput(p2, player);
         sticks = sticks - p2;
-        player = true;
+        player = false;
     }
 }
 if (player) {
