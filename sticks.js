@@ -22,7 +22,6 @@ function getInput(p1, player) {
 var player = false;
 var sticks = prompt("What is the number of sticks you want to play with?");
 while (sticks > 0) {
-    player = false;
     let p1 = 4;
     let p2 = 4;
     p1 = getInput(p1, player);
