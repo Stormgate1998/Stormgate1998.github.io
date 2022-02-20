@@ -28,7 +28,7 @@ while (sticks > 0) {
             if (p1 <= 3 && p1 > 0) {
                 wronginfo = true;
                 userinput = !userinput;
-                @@ -45, 4 + 45, 6 @@ if (player) {
+                if (player) {
                     alert("Player 1 wins!");
                 } else {
                     alert("Player 2 wins!");
