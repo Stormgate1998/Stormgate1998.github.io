@@ -6,9 +6,9 @@ function getInput(p1, player) {
             alert("This is an invalid input. Please choose a number between 1 and 3");
         }
         if (!player) {
-            p1 = prompt(sticks, "Player 1, choose a number between 1 and 3");
+            p1 = (`${sticks} Player 1 choose a number between 1 and 3`);
         } else {//changes from player 1 to player 2
-            p1 = prompt(sticks, "Player 2, choose a number between 1 and 3");
+            p1 = (`${sticks} Player 2, choose a number between 1 and 3`);
         }
         
         if (p1 <= 3 && p1 > 0) {
@@ -22,6 +22,7 @@ function getInput(p1, player) {
 var player = false;
 var sticks = prompt("What is the number of sticks you want to play with?");
 while (sticks > 0) {
+    player = false;
     let p1 = 4;
     let p2 = 4;
     p1 = getInput(p1, player);
