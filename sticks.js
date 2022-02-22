@@ -45,7 +45,6 @@ function sticks() {
 }
 
 /*<!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -61,23 +60,29 @@ function sticks() {
       <div id="stickPile"></div>
       <ol id="stickTakeLog"></ol>
       <form id="buttons">
-        <button type="button" onclick="nextTurn()">next turn</button>
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
       </form>
     </main>
   </body>
 </html>
+
  * 
  * window.addEventListener("load", function () {
-  let playerNode = document.querySelector("#currentPlayer");
-  let currentPlayer = Number(playerNode.innerText);
-  this.alert(`page loaded. currentPlayer is ${currentPlayer}`);
+  //   let nextTurnButton = this.document.querySelector("button");
+  this.document.body.addEventListener("click", function (event) {
+    let clickedOnButton = event.target;
+    let sticksChosen = Number(clickedOnButton.innerText);
+    let playerNode = document.querySelector("#currentPlayer");
+    let currentPlayer = Number(playerNode.innerText);
+    alert(`Player ${currentPlayer} chose ${sticksChosen} sticks.`);
+    let nextPlayer = 3 - currentPlayer;
+    document.querySelector("#currentPlayer").innerText = nextPlayer;
+    console.log(event);
+  });
 });
 
-// function nextTurn() {
-//   let playerNode = document.querySelector("#currentPlayer");
-//   let currentPlayer = Number(playerNode.innerText);
-//   let nextPlayer = 3 - currentPlayer;
-//   document.querySelector("#currentPlayer").innerText = nextPlayer;
 // }
 
  * 
