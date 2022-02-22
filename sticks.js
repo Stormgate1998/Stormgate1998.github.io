@@ -25,11 +25,20 @@ while (sticks > 0) {
                 alert("This is an invalid input. Please choose a number between 1 and 3");
             }
             p2 = prompt(`${sticks} Player 2, choose a number between 1 and 3`);
-            if (p1 <= 3 && p1 > 0) {
+            if (p2 <= 3 && p2 > 0) {
                 wronginfo = true;
                 userinput = !userinput;
-                if (player) {
-                    alert("Player 1 wins!");
-                } else {
-                    alert("Player 2 wins!");
-                }
+
+            }
+
+        }
+        sticks = sticks - p2;
+        player = !player;
+    }
+}
+if (player) {
+    alert("Player 1 wins!");
+} else {
+    alert("Player 2 wins!");
+    //I tried to make it with functions, but couldn't get it to work.
+}
