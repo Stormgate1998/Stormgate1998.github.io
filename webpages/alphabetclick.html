@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<script>
+    const array = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+    'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        var arrayval = 0;
+    window.addEventListener("load", function(){
+
+        let body = document.querySelector("body");
+        body.addEventListener("click", function() {
+        var x = event.clientX;
+        var y = event.clientY;
+        let item = document.createElement("p");
+        item.innerText = array[arrayval];
+        arrayval = arrayval+ 1;
+        arrayval = arrayval % 26;
+        body.appendChild(item);
+        item.style.top = y + "px";
+        item.style.left = x + "px";
+
+
+    });
+    });
+
+</script>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body {
+            height: 100vh;
+            background-color: green;
+        }
+
+        p {
+            position: absolute;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title>Stormgate</title>
+</head>
+<body>
+    <p>testing</p>
+</body>
+</html>
