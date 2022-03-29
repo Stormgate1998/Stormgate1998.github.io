@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <div id="app">{{ myVar }}</div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    myVar: [3, 2]
+                };
+            }
+        }).mount("#app");
+
+    </script>
+</body>
+</html>
