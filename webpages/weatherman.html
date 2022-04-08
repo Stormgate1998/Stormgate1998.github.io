@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<script>
+    window.onload = init;
+    function init() {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    let lat;
+    let long;
+    let forecast;
+    let hrforecast;
+
+    function showPosition(data) {
+        console.log(data);
+        window.Whereim = data;
+        lat = data.coords.latitude;
+        long = data.coords.longitude;
+        fetch(`https://api.weather.gov/points/${lat},${long}`)
+            .then((result) => result.json())
+            .then((weather) => {
+                forecast = weather.properties.forecast;
+                hrforecast = weather.properties.forecastHourly;
+                console.log(forecast);
+                console.log(hrforecast);
+
+            });
+    }
+
+
+</script>
+<style>
+</style>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Wouldn't you like to know Weatherboy?</title>
+</head>
+
+<body>
+    <p id="demo">For weather lab</p>
+
+</body>
+</html>
