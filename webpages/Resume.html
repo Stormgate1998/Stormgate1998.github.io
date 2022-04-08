@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <style>
-    .stormy {
-        background-image: url("stormgate_logo.png");
-    }
     section {
         border: 3px groove green;
         background-color: darkkhaki;
@@ -10,7 +7,9 @@
     h2 {
         border: 4px groove blue;
         width: fit-content;
-        block-size: fit-content;
+        display: flex;
+        align-items: center;
+
     }
     h1 {
         font-family: cursive;
@@ -24,6 +23,15 @@
         color: green;
     }
 
+    .flex {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    ul{
+
+    }
     
     @media screen and (min-width: 320px){
         li {
@@ -39,9 +47,7 @@
         li {
             font-family: 'Times New Roman';
         }
-    }
-
-    
+    }  
 </style>
 
 <html lang="en">
@@ -52,48 +58,59 @@
     <title>This is a Resume</title>
 </head>
 <body>
-    <div class="stormy"></div>
-    <a href = "Test.html">Return Home</a>
-    <img src ="/stormgate_logo.png"/>
-    <header>
-    <h1>A Resume Exists</h1>
-    </header>
-    <main>
-    <section><h2>Contact Information</h2>
-    <ul>
-        <li>John Jacob Jinglheimer Shmitt, Sr.</li>
-        <li>555-987-2581</li>
-        <li>imadethisup@gmail.com</li>
-    </ul>
-    </section>
-    <section><h2>Work History</h2>
-    <ul>
-        <li>
-            Aug 2014- Worked five years at Freddy Fazbear's Pizzeria, until external incidents forced company shutdown.
-        </li>
-        <li> September 2002 - Worked 6 months at The Krusty Krab, left due to pay disagreements.</li>
-        <li> June 1984- Worked [REDACTED] months at Aperture Science as a Product Quality and Use Assistant</li>
-        <li> [REDACTED] - Worked 1 month as Class-D personelle in Site-42 of the Secure, Contain, Protect Foundation.</li>
-    </ul>
-    </section>
-    <section><h2>Relevant Achievements</h2>
-    <ul>
-        <li>Briefly was ruler of Genosha until current ruler took over</li>
-        <li>Travelled through time in a repurposed police-themed phone box</li>
-        <li>Uploaded my consciousness to the internet, starting the Singularity</li>
-    </ul>
-    </section>
-    <section>
-        <h2>
-        Education History
-    </h2>
-    <ul>
-        <li>Studied 7 years at Hogwarts School of Witchcraft and Wizardry</li>
-        <li>Studied 5 years at the Sanctum Sanctorum in New York, New York</li>
-        <li>Studied 2 years at the College of Frozen Crystalline Precipitation</li>
-        <li>Studied 6 months at Charles Xavier's School for Gifted Youngsters</li>
-    </ul>
-    </section>
-    </main>
+        <div class="stormy"></div>
+        <a href="Test.html">Return Home</a>
+        <img src="/stormgate_logo.png" />
+        <header>
+            <h1>A Resume Exists</h1>
+        </header>
+        <main>
+            <section class="flex">
+                <h2>Contact Information</h2>
+            </section>
+            <section class="flex">
+                <ul>
+                    <li>John Jacob Jinglheimer Shmitt, Sr.</li>
+                    <li>555-987-2581</li>
+                    <li>imadethisup@gmail.com</li>
+                </ul>
+            </section>
+            <section class="flex">
+                <h2>Work History</h2>
+                </section>
+            <section class="flex">
+                <ul>
+                    <li>
+                        Aug 2014- Worked five years at Freddy Fazbear's Pizzeria, until external incidents forced company shutdown.
+                    </li>
+                    <li> September 2002 - Worked 6 months at The Krusty Krab, left due to pay disagreements.</li>
+                    <li> June 1984- Worked [REDACTED] months at Aperture Science as a Product Quality and Use Assistant</li>
+                    <li> [REDACTED] - Worked 1 month as Class-D personelle in Site-42 of the Secure, Contain, Protect Foundation.</li>
+                </ul>
+            </section>
+            <section class="flex">
+                <h2>Relevant Achievements</h2>
+            </section>
+            <section class="flex">
+                <ul>
+                    <li>Briefly was ruler of Genosha until current ruler took over</li>
+                    <li>Travelled through time in a repurposed police-themed phone box</li>
+                    <li>Uploaded my consciousness to the internet, starting the Singularity</li>
+                </ul>
+            </section>
+            <section class="flex">
+                <h2>
+                    Education History
+                </h2>
+            </section>
+            <section class="flex">
+                <ul>
+                    <li>Studied 7 years at Hogwarts School of Witchcraft and Wizardry</li>
+                    <li>Studied 5 years at the Sanctum Sanctorum in New York, New York</li>
+                    <li>Studied 2 years at the College of Frozen Crystalline Precipitation</li>
+                    <li>Studied 6 months at Charles Xavier's School for Gifted Youngsters</li>
+                </ul>
+            </section>
+        </main>
 </body>
 </html>
