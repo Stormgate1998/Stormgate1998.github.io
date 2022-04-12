@@ -24,18 +24,25 @@
 </style>
 <script>
     window.onload = init;
-    const myElement = document.getElementById("main");
-    let source = "https://www.dnd5eapi.co/";
-    init(){
-        
+    function init() {
+        const myElement = document.getElementById("main");
+        let source = "https://www.dnd5eapi.co/api/monsters/mimic";
 
         fetch(source)
-            .then((result) => result.json())
-            .then(() => {
-                let 
-                let item = document.createElement("p");
+            .then((result) => {
+               return result.json()
+            })
+            .then((sheet) => {
+                    let item = document.createElement("p");
+                  console.log(sheet.monsters);
+                let thing = sheet.name;
+                   console.log(thing);
+                    item.innerText = thing;
+                    myElement.appendChild(item);
+                });
 
-            });
+
+    };
         //Have default text, introduction, instructions to click on tabs
         //On tab click, do the following:
         //build elements inside "main"
@@ -53,26 +60,26 @@
         //you can absolutely put each one into it's own element
 
         //Maybe have two search functions: one for the main topic, one for individual items
-    }
+   // }
 
-    function buildPage(var input) {
+    /*function buildPage(var input) {
         fetch(source)
             .then((result) => result.json())
-            .then((sheet) => {
+            .then((sheet) => {*/
                 //for (let i = 0; i <= sheet.'input'.count; i++){
         //let item = document.createElement("p");
        // item.innerText = 
-    }
+    //}
                 
+    
+        //    });
+    //}
 
-            });
-    }
-
-    document.addEventListener('click', function (e) {
-        e = e || window.event;
-        var target = e.target || e.srcElement,
-            text = target.textContent || target.innerText;
-    }, false);
+   // document.addEventListener('click', function (e) {
+   //     e = e || window.event;
+   //     var target = e.target || e.srcElement,
+   //         text = target.textContent || target.innerText;
+   // }, false);
 </script>
 <html lang="en">
 
@@ -82,7 +89,7 @@
     <title>Dnd final project</title>
 </head>
 <body>
-    <div class="topnav"">
+    <div class="topnav">
         <p class="classes">Classes</p>
         <p class="feats">Feats</p>
     </div>
