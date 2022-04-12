@@ -1,8 +1,71 @@
 <!DOCTYPE html>
 <style>
-    </style>
+    .topnav{
+        overflow: hidden;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        align-items: center;
+    }
+
+    .topnav p{
+        float: left;
+        color: aqua;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: navy;
+    }
+
+</style>
 <script>
-    https://www.dnd5eapi.co/
+    window.onload = init;
+    const myElement = document.getElementById("main");
+    let source = "https://www.dnd5eapi.co/";
+    init(){
+        
+
+        fetch(source)
+            .then((result) => result.json())
+            .then(() => {
+                let 
+                let item = document.createElement("p");
+
+            });
+        //Have default text, introduction, instructions to click on tabs
+        //On tab click, do the following:
+        //build elements inside "main"
+        //On click for each element, trigger following:
+        //Display appropriate information
+        //Make links to linked information
+
+        //when clicking on linked information:
+        //clear main
+        //repeat function with new data
+    }
+
+    function buildPage(var input) {
+        fetch(source)
+            .then((result) => result.json())
+            .then((sheet) => {
+                //for (let i = 0; i <= sheet.'input'.count; i++){
+        //let item = document.createElement("p");
+       // item.innerText = 
+    }
+                
+
+            });
+    }
+
+    document.addEventListener('click', function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement,
+            text = target.textContent || target.innerText;
+    }, false);
 </script>
 <html lang="en">
 
@@ -12,5 +75,10 @@
     <title>Dnd final project</title>
 </head>
 <body>
+    <div class="topnav"">
+        <p class="classes">Classes</p>
+        <p class="feats">Feats</p>
+    </div>
+    <div id="main"></div>
 </body>
 </html>
