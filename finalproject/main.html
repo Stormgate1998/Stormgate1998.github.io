@@ -25,22 +25,85 @@
 <script>
     window.onload = init;
     const myElement = document.getElementById("main");
-    let source = "https://www.dnd5eapi.co/api/monsters/mimic";
-    function init() {
+    let source = "https://www.dnd5eapi.co/api/spells/";
+   
+   /* function listmake(object, precursor = "") {
+        var names = Object.getOwnPropertyNames(object);
+        for (let i = 0; i <= Object.keys(object).length; i++) {
+            if (typeof (names[i]) == 'string') {
+                var item = document.createElement("p");
+                item.innerText = precursor + names[i] + ": " + object[element];
+                console.log(item);
+                myElement.appendChild(item);
+            } else {
+                listmake(element, names[i]);
+            }
+        }*/
+        //names.forEach(element => {
+        //       listmake(element, object);
 
+         //   var item = document.createElement("p");
+          //  item.innerText = precursor + element + ": " + object[element];
+          //  console.log(item);
+
+                //var item = document.createElement("p");
+                //item.className = "content";
+                //item.innerText = precursor + element + ": " + object[element];
+                //console.log(item.innerText);
+            //}
+        //    myElement.appendChild(item);
+        //});
+  // }
+    function init() {
+        const object1 = {
+            a: 'somestring',
+            b: 42,
+            c: false
+        };
+
+        console.log(Object.values(object1));
 
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                for (let prop in sheet) {
-                    let item = document.createElement("p");
-                    item.className = "content";
-                    item.innerText = prop + sheet.prop;
-                    myElement.appendChild(item);
-                }
 
-            });
-    }
+                var result = sheet.results;
+                console.log(result[0]);
+                console.log(Object.values(result[0]));
+                result.forEach(element => {
+                    var names = Object.getOwnPropertyNames(element);
+                    console.log(names);
+
+                    names.forEach(thing => {
+                        //console.log(Object.values(names));
+                        // var item = document.createElement("p");
+                        // item.innerText = thing + ": " + names[thing];
+                        //myElement.appendChild(item);
+
+                    })
+                
+                    
+                //listmake(sheet);
+                //var names = Object.getOwnPropertyNames(sheet);
+               // names.forEach(element => {
+                 //   var item = document.createElement("p");
+                 //   item.className = "content";
+                 //  item.innerText = element + ": " + sheet[element];
+                //    console.log(item.innerText);
+                   // myElement.appendChild(item);
+                });
+                //var descriptor;
+                //for (let thing in names) {
+                   // var item = document.createElement("p");
+                  //  item.className = "content";
+                   // item.innerText = thing + ": " + Object.getOwnPropertyDescriptor(sheet, thing);
+                  //  console.log(item.innerText);
+                
+                    //myElement.appendChild(item);
+                //}
+
+            //});
+        });
         //Have default text, introduction, instructions to click on tabs
         //On tab click, do the following:
         //build elements inside "main"
@@ -73,11 +136,6 @@
    //         });
    // }
 
-    document.addEventListener('click', function (e) {
-        e = e || window.event;
-        var target = e.target || e.srcElement,
-            text = target.textContent || target.innerText;
-    }, false);
 </script>
 <html lang="en">
 
@@ -87,7 +145,7 @@
     <title>Dnd final project</title>
 </head>
 <body>
-    <div class="topnav"">
+    <div class="topnav">
         <p class="classes">Classes</p>
         <p class="feats">Feats</p>
     </div>
