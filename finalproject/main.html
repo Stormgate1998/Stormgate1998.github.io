@@ -35,21 +35,23 @@
      * 
      * 
      */
-    window.onload = init;
-    const myElement = document.querySelector("body");
-    let source = "https://www.dnd5eapi.co/api/monsters/mimic";
-   
- 
-    function init() {
+    window.addEventListener("load", function () {
+        const myElement = document.querySelector("body");
+        let source = "https://www.dnd5eapi.co/api/monsters/mimic";
 
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                let item = document.createElement("p");
-                item.innerText = 'sheet.name';
-                myElement.appendChild(item);
+                var names = Object.getOwnPropertyNames(sheet);
+                names.forEach(element => {
+                    console.log(names);
+                    let item = document.createElement("p");
+                    item.innerText = element + ': ' + names[element];
+                    myElement.appendChild(item);
+                })
             });
-    }
+
+    });
 </script>
 <html lang="en">
 
