@@ -25,16 +25,16 @@
 <script>
     window.onload = init;
     const myElement = document.getElementById("main");
-    let source = "https://www.dnd5eapi.co/";
-    init(){
+    let source = "https://www.dnd5eapi.co/api/monsters/mimic";
+    function init(){
         
 
         fetch(source)
             .then((result) => result.json())
-            .then(() => {
-                let 
+            .then((sheet) => {
                 let item = document.createElement("p");
-
+                item.innerText = sheet.name;
+                myElement.appendChild(item);
             });
         //Have default text, introduction, instructions to click on tabs
         //On tab click, do the following:
