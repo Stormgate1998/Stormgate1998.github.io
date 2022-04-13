@@ -26,16 +26,21 @@
     window.onload = init;
     const myElement = document.getElementById("main");
     let source = "https://www.dnd5eapi.co/api/monsters/mimic";
-    function init(){
-        
+    function init() {
+
 
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                let item = document.createElement("p");
-                item.innerText = sheet.name;
-                myElement.appendChild(item);
+                for (let prop in sheet) {
+                    let item = document.createElement("p");
+                    item.className = "content";
+                    item.innerText = prop + sheet.prop;
+                    myElement.appendChild(item);
+                }
+
             });
+    }
         //Have default text, introduction, instructions to click on tabs
         //On tab click, do the following:
         //build elements inside "main"
@@ -53,20 +58,20 @@
         //you can absolutely put each one into it's own element
 
         //Maybe have two search functions: one for the main topic, one for individual items
-    }
+   // }
 
-    function buildPage(var input) {
-        fetch(source)
-            .then((result) => result.json())
-            .then((sheet) => {
+   // function buildPage(var input) {
+    //    fetch(source)
+    //        .then((result) => result.json())
+    //       .then((sheet) => {
                 //for (let i = 0; i <= sheet.'input'.count; i++){
         //let item = document.createElement("p");
        // item.innerText = 
-    }
+   // }
                 
 
-            });
-    }
+   //         });
+   // }
 
     document.addEventListener('click', function (e) {
         e = e || window.event;
