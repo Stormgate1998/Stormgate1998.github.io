@@ -23,119 +23,33 @@
 
 </style>
 <script>
+    /*
+     * To make it work:
+     * get names of all elements
+     * get values of all elements
+     * FIGURE OUT IF IT'S AN OBJECT
+     * IF SO, BREAK IT IN PIECES
+     * display all as elements
+     * 
+     * 
+     * 
+     * 
+     */
     window.onload = init;
-    const myElement = document.getElementById("main");
-    let source = "https://www.dnd5eapi.co/api/spells/";
+    const myElement = document.querySelector("body");
+    let source = "https://www.dnd5eapi.co/api/monsters/mimic";
    
-   /* function listmake(object, precursor = "") {
-        var names = Object.getOwnPropertyNames(object);
-        for (let i = 0; i <= Object.keys(object).length; i++) {
-            if (typeof (names[i]) == 'string') {
-                var item = document.createElement("p");
-                item.innerText = precursor + names[i] + ": " + object[element];
-                console.log(item);
-                myElement.appendChild(item);
-            } else {
-                listmake(element, names[i]);
-            }
-        }*/
-        //names.forEach(element => {
-        //       listmake(element, object);
-
-         //   var item = document.createElement("p");
-          //  item.innerText = precursor + element + ": " + object[element];
-          //  console.log(item);
-
-                //var item = document.createElement("p");
-                //item.className = "content";
-                //item.innerText = precursor + element + ": " + object[element];
-                //console.log(item.innerText);
-            //}
-        //    myElement.appendChild(item);
-        //});
-  // }
+ 
     function init() {
-        const object1 = {
-            a: 'somestring',
-            b: 42,
-            c: false
-        };
-
-        console.log(Object.values(object1));
 
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-
-                var result = sheet.results;
-                console.log(result[0]);
-                console.log(Object.values(result[0]));
-                result.forEach(element => {
-                    var names = Object.getOwnPropertyNames(element);
-                    console.log(names);
-
-                    names.forEach(thing => {
-                        //console.log(Object.values(names));
-                        // var item = document.createElement("p");
-                        // item.innerText = thing + ": " + names[thing];
-                        //myElement.appendChild(item);
-
-                    })
-                
-                    
-                //listmake(sheet);
-                //var names = Object.getOwnPropertyNames(sheet);
-               // names.forEach(element => {
-                 //   var item = document.createElement("p");
-                 //   item.className = "content";
-                 //  item.innerText = element + ": " + sheet[element];
-                //    console.log(item.innerText);
-                   // myElement.appendChild(item);
-                });
-                //var descriptor;
-                //for (let thing in names) {
-                   // var item = document.createElement("p");
-                  //  item.className = "content";
-                   // item.innerText = thing + ": " + Object.getOwnPropertyDescriptor(sheet, thing);
-                  //  console.log(item.innerText);
-                
-                    //myElement.appendChild(item);
-                //}
-
-            //});
-        });
-        //Have default text, introduction, instructions to click on tabs
-        //On tab click, do the following:
-        //build elements inside "main"
-        //On click for each element, trigger following:
-        //Display appropriate information
-        //Make links to linked information
-
-        //when clicking on linked information:
-        //clear main
-        //repeat function with new data
-
-
-        //there's a count element for each overarching thing
-        //the elements are in an array
-        //you can absolutely put each one into it's own element
-
-        //Maybe have two search functions: one for the main topic, one for individual items
-   // }
-
-   // function buildPage(var input) {
-    //    fetch(source)
-    //        .then((result) => result.json())
-    //       .then((sheet) => {
-                //for (let i = 0; i <= sheet.'input'.count; i++){
-        //let item = document.createElement("p");
-       // item.innerText = 
-   // }
-                
-
-   //         });
-   // }
-
+                let item = document.createElement("p");
+                item.innerText = 'sheet.name';
+                myElement.appendChild(item);
+            });
+    }
 </script>
 <html lang="en">
 
@@ -149,6 +63,8 @@
         <p class="classes">Classes</p>
         <p class="feats">Feats</p>
     </div>
-    <div id="main"></div>
+    <div id="main">
+        <p>Testing</p>
+    </div>
 </body>
 </html>
