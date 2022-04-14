@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<style>
+    .topnav{
+        overflow: hidden;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        align-items: center;
+    }
+
+    .topnav p{
+        float: left;
+        color: aqua;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: navy;
+    }
+
+</style>
+<script>
+    /*
+     * To make it work:
+     * get names of all elements
+     * get values of all elements
+     * FIGURE OUT IF IT'S AN OBJECT
+     * IF SO, BREAK IT IN PIECES
+     * display all as elements
+     * 
+     * 
+     * 
+     * 
+     */
+    window.addEventListener("load", function () {
+        const myElement = document.querySelector("body");
+        let source = "https://www.dnd5eapi.co/api/monsters/mimic";
+
+        fetch(source)
+            .then((result) => result.json())
+            .then((sheet) => {
+                var names = Object.getOwnPropertyNames(sheet);
+                names.forEach(element => {
+                    console.log(names);
+                    let item = document.createElement("p");
+                    item.innerText = element + ': ' + names[element];
+                    myElement.appendChild(item);
+                })
+            });
+
+    });
+</script>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dnd final project</title>
+</head>
+<body>
+    <div class="topnav">
+        <p class="classes">Classes</p>
+        <p class="feats">Feats</p>
+    </div>
+    <div id="main">
+        <p>Testing</p>
+    </div>
+</body>
+</html>
