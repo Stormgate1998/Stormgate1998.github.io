@@ -42,16 +42,33 @@
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                var names = Object.getOwnPropertyNames(sheet);
+                var names = Object.values(sheet);
+                var properties = Object.keys(sheet);
+                let index = 0;
                 names.forEach(element => {
                     console.log(names);
                     let item = document.createElement("p");
-                    item.innerText = element + ': ' + names[element];
+                    item.innerText = properties[index]+ ': ' + element;
                     myElement.appendChild(item);
+                    index++;
                 })
             });
 
     });
+
+    //Takes an object, presents a list of all items
+    function getList(object) {
+    }
+
+    //takes a piece of url, fetches list. If an item is an object, loop
+    function goFetch(url) {
+
+    }
+    //
+    //given an element, systematically removes all children from it
+    function wipePage(subject) {
+
+    }
 </script>
 <html lang="en">
 
