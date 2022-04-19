@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>This is a test</title>
+</head>
+
+<body>
+    <!-- from https://www.pexels.com/photo/gray-and-brown-mountain-417173/ no attribution required -->
+    <img src="mountain-image.png" style="max-width: 100%;" />
+
+    <div class="slidecontainer">
+        <p class="blur">Blur</p>
+        <input type="range" min="0" max="100" value="0" class="slider" id="blur">
+
+        <p class="grayscale">Grayscale</p>
+        <input type="range" min="0" max="100" value="0" class="slider" id="grayscale">
+
+        <p class="contrast">Contrast</p>
+        <input type="range" min="0" max="200" value="100" class="slider" id="contrast">
+
+        <p class="saturate">Saturate</p>
+        <input type="range" min="0" max="200" value="100" class="slider" id="saturate">
+
+        <p class="saturate">Invert</p>
+        <input type="range" min="0" max="100" value="0" class="slider" id="invert">
+
+        <p class="saturate">Sepia</p>
+        <input type="range" min="0" max="100" value="0" class="slider" id="sepia">
+    </div>
+
+    <button style="margin: 10px">Reset</button>
+    <p id="f"></p>
+
+    <script>
+
+        var sliderDiv = document.querySelector("div");
+        var amt = document.getElementById("f");
+        var image = document.querySelector("img");
+        var reset = document.querySelector("button");
+
+        var b = document.querySelector("#blur");
+        var grayscale = document.querySelector("#grayscale");
+        var contrast = document.querySelector("#contrast");
+        var saturate = document.querySelector("#saturate");
+        var invert = document.querySelector("#invert");
+        var sepia = document.querySelector("#sepia")
+
+        sliderDiv.addEventListener("input", function (e) {
+            amt.innerHTML = e.target.value;
+            editImage(e.target.value);
+        });
+
+        reset.addEventListener("onclick", function () {
+            b.value = b.getAttribute("value");
+            editImage(b.value);
+
+        });
+
+        function editImage(value) {
+            image.style.filter = `blur(${b.value}px) grayscale(${grayscale.value}%) saturate(${saturate.value}%)
+            contrast(${contrast.value}%) invert(${invert.value}%) sepia(${sepia.value}%)`;
+        }
+    </script>
+</body>
+
+</html>

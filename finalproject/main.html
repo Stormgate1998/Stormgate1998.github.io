@@ -23,56 +23,35 @@
 
 </style>
 <script>
-    window.onload = init;
-    const myElement = document.getElementById("main");
-    let source = "https://www.dnd5eapi.co/";
-    init(){
-        
+    /*
+     * To make it work:
+     * get names of all elements
+     * get values of all elements
+     * FIGURE OUT IF IT'S AN OBJECT
+     * IF SO, BREAK IT IN PIECES
+     * display all as elements
+     * 
+     * 
+     * 
+     * 
+     */
+    window.addEventListener("load", function () {
+        const myElement = document.querySelector("body");
+        let source = "https://www.dnd5eapi.co/api/monsters/mimic";
 
-        fetch(source)
-            .then((result) => result.json())
-            .then(() => {
-                let 
-                let item = document.createElement("p");
-
-            });
-        //Have default text, introduction, instructions to click on tabs
-        //On tab click, do the following:
-        //build elements inside "main"
-        //On click for each element, trigger following:
-        //Display appropriate information
-        //Make links to linked information
-
-        //when clicking on linked information:
-        //clear main
-        //repeat function with new data
-
-
-        //there's a count element for each overarching thing
-        //the elements are in an array
-        //you can absolutely put each one into it's own element
-
-        //Maybe have two search functions: one for the main topic, one for individual items
-    }
-
-    function buildPage(var input) {
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                //for (let i = 0; i <= sheet.'input'.count; i++){
-        //let item = document.createElement("p");
-       // item.innerText = 
-    }
-                
-
+                var names = Object.getOwnPropertyNames(sheet);
+                names.forEach(element => {
+                    console.log(names);
+                    let item = document.createElement("p");
+                    item.innerText = element + ': ' + names[element];
+                    myElement.appendChild(item);
+                })
             });
-    }
 
-    document.addEventListener('click', function (e) {
-        e = e || window.event;
-        var target = e.target || e.srcElement,
-            text = target.textContent || target.innerText;
-    }, false);
+    });
 </script>
 <html lang="en">
 
@@ -82,10 +61,12 @@
     <title>Dnd final project</title>
 </head>
 <body>
-    <div class="topnav"">
+    <div class="topnav">
         <p class="classes">Classes</p>
         <p class="feats">Feats</p>
     </div>
-    <div id="main"></div>
+    <div id="main">
+        <p>Testing</p>
+    </div>
 </body>
 </html>
