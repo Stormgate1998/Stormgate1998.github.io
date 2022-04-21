@@ -32,18 +32,22 @@
      * display all as elements
      * 
      * 
+     * item.addEventListener("onclick", (event)=>
+     * { event.target.innerHTML = link to next
+     * })
      * 
      * 
      */
     window.addEventListener("load", function () {
-        const myElement = document.querySelector("body");
-        goFetch("/api/monsters/mimic"); 
+       // const myElement = document.querySelector("body");
+       // goFetch("/api/monsters/mimic"); 
 
     });
 
     //Takes an object, presents a list of all items
     function getList(sheet, addition = "") {
-        const myElement = document.querySelector("body");
+        const myElement = document.getElementById("main");
+        //wipePage(myElement);
         var names = Object.values(sheet);
         var properties = Object.keys(sheet);
         let index = 0;
@@ -51,13 +55,28 @@
             if ((typeof element) == "object") {
                 //check API to view discrepencies
                 let thing = document.createElement("h3");
+                if (properties[index] != 0) {
                 thing.innerText = properties[index];
+            }
                 myElement.appendChild(thing);
-                getList(element, (addition + "       "));
+                getList(element/*, (addition + "       ")*/);
             } else {
-                let item = document.createElement("p");
-                item.innerText = addition + properties[index] + ': ' + element;
-                myElement.appendChild(item);
+                let item;
+                if (properties[index] === "url") {
+                    item = document.createElement("a");
+                    item.innerText = addition + properties[index] + ': ' + element;
+                    item.addEventListener("onclick", (){
+                        wipePage(getElementById("main"));
+                        goFetch(element);
+                    }
+                    );
+
+                } else {
+                    item = document.createElement("p");
+                    item.innerText = addition + properties[index] + ': ' + element;
+                }
+                    myElement.appendChild(item);
+                    
                 index++;
             }
         })
@@ -76,6 +95,9 @@
     //
     //given an element, systematically removes all children from it
     function wipePage(subject) {
+        while (subject.firstChild) {
+            subject.removeChild(subject.lastChild);
+        }
     }
     //takes any string and checks for appropriate uppercase. Removes _ as well
     function modInput(stringIn) {
@@ -96,9 +118,8 @@
 </head>
 <body>
     <div class="topnav">
-        <p class="classes">Classes</p>
-        <p class="feats">Feats</p>
-        <p class="feats">Ability Scores</p>
+        <p class="classes"><a onclick="wipePage(getElementById('main')); goFetch('/api/classes')">Classes</a></p>
+        <p class="feats"><a onclick="goFetch('/api/feats')">Feats</a></p><p class="feats">Ability Scores</p>
         <p class="feats">Alignments</p>
         <p class="feats">Backgrounds</p>
         <p class="feats">Damage Types</p>
@@ -122,7 +143,6 @@
         <p class="feats">Weapon Properties</p>
     </div>
     <div id="main">
-        <p>Testing</p>
     </div>
 </body>
 </html>
