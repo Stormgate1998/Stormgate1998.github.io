@@ -37,21 +37,50 @@
      */
     window.addEventListener("load", function () {
         const myElement = document.querySelector("body");
-        let source = "https://www.dnd5eapi.co/api/monsters/mimic";
+        goFetch("/api/monsters/mimic"); 
+
+    });
+
+    //Takes an object, presents a list of all items
+    function getList(sheet, addition = "") {
+        const myElement = document.querySelector("body");
+        var names = Object.values(sheet);
+        var properties = Object.keys(sheet);
+        let index = 0;
+        names.forEach(element => {
+            if ((typeof element) == "object") {
+                //check API to view discrepencies
+                let thing = document.createElement("h3");
+                thing.innerText = properties[index];
+                myElement.appendChild(thing);
+                getList(element, (addition + "       "));
+            } else {
+                let item = document.createElement("p");
+                item.innerText = addition + properties[index] + ': ' + element;
+                myElement.appendChild(item);
+                index++;
+            }
+        })
+
+    }
+    //takes a piece of url, fetches list. If an item is an object, loop. If value is empty, print N/A
+    function goFetch(url) {
+        let source = "https://www.dnd5eapi.co" + url;
 
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                var names = Object.getOwnPropertyNames(sheet);
-                names.forEach(element => {
-                    console.log(names);
-                    let item = document.createElement("p");
-                    item.innerText = element + ': ' + names[element];
-                    myElement.appendChild(item);
-                })
+                getList(sheet);
             });
+                }
+    //
+    //given an element, systematically removes all children from it
+    function wipePage(subject) {
+    }
+    //takes any string and checks for appropriate uppercase. Removes _ as well
+    function modInput(stringIn) {
 
-    });
+    }
 </script>
 <html lang="en">
 
