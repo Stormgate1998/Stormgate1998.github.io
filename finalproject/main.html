@@ -65,8 +65,8 @@
                 if (properties[index] === "url") {
                     item = document.createElement("a");
                     item.innerText = addition + properties[index] + ': ' + element;
-                    item.addEventListener("onclick", (){
-                        wipePage(getElementById("main"));
+                    item.addEventListener("click", (element) =>{
+                        wipePage(getElementById('main'));//THIS HAS ISSUES
                         goFetch(element);
                     }
                     );
@@ -119,7 +119,7 @@
 <body>
     <div class="topnav">
         <p class="classes"><a onclick="wipePage(getElementById('main')); goFetch('/api/classes')">Classes</a></p>
-        <p class="feats"><a onclick="goFetch('/api/feats')">Feats</a></p><p class="feats">Ability Scores</p>
+        <p class="feats"><a onclick="wipePage(getElementById('main')); goFetch('/api/feats')">Feats</a></p><p class="feats">Ability Scores</p>
         <p class="feats">Alignments</p>
         <p class="feats">Backgrounds</p>
         <p class="feats">Damage Types</p>
