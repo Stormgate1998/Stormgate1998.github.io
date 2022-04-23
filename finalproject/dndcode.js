@@ -96,7 +96,7 @@ function getList(sheet, addition = "") {
             let item;
             let item2;
             element = String(element);
-            if (properties[index] === "count" || properties[index] === "index") {
+            if (properties[index] === "count" || properties[index] === "index" || properties[index] === "_id") {
 
             } else {
 
