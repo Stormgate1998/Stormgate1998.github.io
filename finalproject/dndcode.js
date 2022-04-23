@@ -2,6 +2,7 @@ function menubar(url) {
     wipePage(document.getElementById('main'));
     goFetch(url);
 }
+currenturl;
 /*
  * To make it work:
  * get names of all elements
@@ -96,7 +97,7 @@ function getList(sheet, addition = "") {
             let item;
             let item2;
             element = String(element);
-            if (properties[index] === "count" || properties[index] === "index" || properties[index] === "_id") {
+            if (properties[index] === "count" || properties[index] === "index" || properties[index] === "_id" || element === currenturl) {
 
             } else {
 
@@ -127,7 +128,7 @@ function getList(sheet, addition = "") {
 //takes a piece of url, fetches list. If an item is an object, loop. If value is empty, print N/A
 function goFetch(url) {
     let source = "https://www.dnd5eapi.co" + url;
-
+    currenturl = url;
     fetch(source)
         .then((result) => result.json())
         .then((sheet) => {
@@ -156,6 +157,6 @@ function modInput(stringIn) {
  * 
  * Make everything look nice
  *
- *
+ *if url matches current url, ignore it.
  * 
  */
