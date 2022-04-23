@@ -2,7 +2,7 @@ function menubar(url) {
     wipePage(document.getElementById('main'));
     goFetch(url);
 }
-currenturl;
+var currenturl;
 /*
  * To make it work:
  * get names of all elements
