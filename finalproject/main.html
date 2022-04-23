@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <style>
-    .topnav{
+    /* Dropdown Button */
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+                background-color: #ddd
+            }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {
+        display: block;
+    }
+    /*.topnav{
         overflow: hidden;
         position: -webkit-sticky;
         position: sticky;
@@ -19,7 +67,7 @@
         text-decoration: none;
         font-size: 16px;
         background-color: navy;
-    }
+    }*/ 
 
 </style>
 <script>
@@ -36,12 +84,31 @@
      * display all as elements
      * 
      * 
-     * item.addEventListener("onclick", (event)=>
-     * { event.target.innerHTML = link to next
-     * })
+     * 
      * 
      * 
      */
+
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
     window.addEventListener("load", function () {
        // const myElement = document.querySelector("body");
        // goFetch("/api/monsters/mimic"); 
@@ -113,10 +180,6 @@
 
     }
 
-    //url function
-    //if properties[index] == url
-    //add an event listener onclick.
-    //triggers goFetch with included url.
 </script>
 <html lang="en">
 
@@ -127,23 +190,37 @@
 </head>
 <body>
     <div class="topnav">
-        <ul class="mainmenu">
-            <li class="menuitem">
-                <a tabindex="0">Character Information</a>
-                <ul>
-                    <li>Feats</li>
-                    <li></li>
-                </ul>
-            </li>
-            <li class="menuitem"></li>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Character Information</button>
+            <div id="myDropdown" class="dropdown-content character">
+                <a onclick="menubar('/api/classes')">Classes</a>
+                <a onclick="menubar('/api/feats')">Feats</a>
+                <a onclick="menubar('/api/ability-scores')">Ability Scores</a>
+                <a onclick="menubar('/api/alignments')">Alignments</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Combat</button>
+            <div id="myDropdown" class="dropdown-content combat">
+                <a onclick="menubar('/api/damage-types')">Damage Types</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Magic</button>
+            <div id="myDropdown" class="dropdown-content magic">
+                <a onclick="menubar('/api/damage-types')">Damage Types</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">General Information</button>
+            <div id="myDropdown" class="dropdown-content general">
+                <a onclick="menubar('/api/damage-types')">Damage Types</a>
+            </div>
+        </div>
 
-        </ul>
-        <p><a onclick="menubar('/api/classes')">Classes</a></p>
-        <p><a onclick="menubar('/api/feats')">Feats</a></p>
-        <p><a onclick="menubar('/api/ability-scores')">Ability Scores</a></p>
-        <p><a onclick="menubar('/api/alignments')">Alignments</a></p>
+        <p></p>
         <p><a onclick="menubar('/api/backgrounds')">Backgrounds</a></p>
-        <p><a onclick="menubar('/api/damage-types')">Damage Types</a></p>
+        <p></p>
         <p><a onclick="menubar('/api/conditions')">Conditions</a></p>
         <p><a onclick="menubar('/api/equipment')">Equipment</a></p>
         <p><a onclick="menubar('/api/equipment-categories')">Equipment Categories</a></p>
