@@ -32,26 +32,82 @@
      * display all as elements
      * 
      * 
+     * item.addEventListener("onclick", (event)=>
+     * { event.target.innerHTML = link to next
+     * })
      * 
      * 
      */
     window.addEventListener("load", function () {
-        const myElement = document.querySelector("body");
-        let source = "https://www.dnd5eapi.co/api/monsters/mimic";
+       // const myElement = document.querySelector("body");
+       // goFetch("/api/monsters/mimic"); 
+
+    });
+
+    //Takes an object, presents a list of all items
+    function getList(sheet, addition = "") {
+        const myElement = document.getElementById("main");
+        //wipePage(myElement);
+        var names = Object.values(sheet);
+        var properties = Object.keys(sheet);
+        let index = 0;
+        names.forEach(element => {
+            if ((typeof element) == "object") {
+                //check API to view discrepencies
+                let thing = document.createElement("h3");
+                if (properties[index] != 0) {
+                thing.innerText = properties[index];
+            }
+                myElement.appendChild(thing);
+                getList(element/*, (addition + "       ")*/);
+            } else {
+                let item;
+                if (properties[index] === "url") {
+                    item = document.createElement("a");
+                    item.innerText = addition + properties[index] + ': ' + element;
+                    item.addEventListener("click", (element) =>{
+                        wipePage(getElementById('main'));//THIS HAS ISSUES
+                        goFetch(element);
+                    }
+                    );
+
+                } else {
+                    item = document.createElement("p");
+                    item.innerText = addition + properties[index] + ': ' + element;
+                }
+                    myElement.appendChild(item);
+                    
+                index++;
+            }
+        })
+
+    }
+    //takes a piece of url, fetches list. If an item is an object, loop. If value is empty, print N/A
+    function goFetch(url) {
+        let source = "https://www.dnd5eapi.co" + url;
 
         fetch(source)
             .then((result) => result.json())
             .then((sheet) => {
-                var names = Object.getOwnPropertyNames(sheet);
-                names.forEach(element => {
-                    console.log(names);
-                    let item = document.createElement("p");
-                    item.innerText = element + ': ' + names[element];
-                    myElement.appendChild(item);
-                })
+                getList(sheet);
             });
+                }
+    //
+    //given an element, systematically removes all children from it
+    function wipePage(subject) {
+        while (subject.firstChild) {
+            subject.removeChild(subject.lastChild);
+        }
+    }
+    //takes any string and checks for appropriate uppercase. Removes _ as well
+    function modInput(stringIn) {
 
-    });
+    }
+
+    //url function
+    //if properties[index] == url
+    //add an event listener onclick.
+    //triggers goFetch with included url.
 </script>
 <html lang="en">
 
@@ -62,11 +118,31 @@
 </head>
 <body>
     <div class="topnav">
-        <p class="classes">Classes</p>
-        <p class="feats">Feats</p>
+        <p class="classes"><a onclick="wipePage(getElementById('main')); goFetch('/api/classes')">Classes</a></p>
+        <p class="feats"><a onclick="wipePage(getElementById('main')); goFetch('/api/feats')">Feats</a></p><p class="feats">Ability Scores</p>
+        <p class="feats">Alignments</p>
+        <p class="feats">Backgrounds</p>
+        <p class="feats">Damage Types</p>
+        <p class="feats">Conditions</p>
+        <p class="feats">Equipment</p>
+        <p class="feats">Equipment Categories</p>
+        <p class="feats">Features</p>
+        <p class="feats">Languages</p>
+        <p class="feats">Magic Items</p>
+        <p class="feats">Magic Schools</p>
+        <p class="feats">Monsters</p>
+        <p class="feats">Proficiencies</p>
+        <p class="feats">Races</p>
+        <p class="feats">Rule Sections</p>
+        <p class="feats">Rules</p>
+        <p class="feats">Skills</p>
+        <p class="feats">Spells</p>
+        <p class="feats">Subclasses</p>
+        <p class="feats">Subraces</p>
+        <p class="feats">Traits</p>
+        <p class="feats">Weapon Properties</p>
     </div>
     <div id="main">
-        <p>Testing</p>
     </div>
 </body>
 </html>
