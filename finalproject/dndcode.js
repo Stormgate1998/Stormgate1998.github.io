@@ -76,12 +76,6 @@ window.onclick = function (event) {
     }
 }
 
-window.addEventListener("load", function () {
-    // const myElement = document.querySelector("body");
-    // goFetch("/api/monsters/mimic"); 
-
-});
-
 //Takes an object, presents a list of all items
 function getList(sheet, addition = "") {
     const myElement = document.getElementById("main");
@@ -146,3 +140,17 @@ function wipePage(subject) {
 function modInput(stringIn) {
 
 }
+/* TO DO list:
+ * Figure out how to block things into appropriate divs
+ * do so
+ * in html/css add grid format to make reading easier
+ * dynamically change formatting
+ * 
+ * build and implement modInupt
+ * alter display to hide unwanted elements
+ * 
+ * Make everything look nice
+ *
+ *
+ * 
+ * /
