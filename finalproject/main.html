@@ -62,16 +62,20 @@
                 getList(element/*, (addition + "       ")*/);
             } else {
                 let item;
-                if (properties[index] === "url") {
-                    item = document.createElement("a");
-                    item.innerText = addition + properties[index] + ': ' + element;
-                    item.addEventListener("click", (event) =>{
-                        wipePage(document.getElementById("main"));//THIS HAS ISSUES
+                let item2;
+                element = String(element);
+                if (element.includes("/")) {
+                    item = document.createElement("p");
+                    item2 = document.createElement("a");
+                    item2.innerText = addition + properties[index] + ': ' + element;
+                    item2.addEventListener("click", (event) => {
+                        wipePage(document.getElementById("main"));
                         console.log(element);
                         goFetch(element);
                     }
+                        
                     );
-
+                    item.appendChild(item2);
                 } else {
                     item = document.createElement("p");
                     item.innerText = addition + properties[index] + ': ' + element;
