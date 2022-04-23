@@ -23,6 +23,10 @@
 
 </style>
 <script>
+    function menubar(url) {
+        wipePage(document.getElementById('main')); 
+        goFetch(url);
+    }
     /*
      * To make it work:
      * get names of all elements
@@ -67,7 +71,7 @@
                 if (element.includes("/")) {
                     item = document.createElement("p");
                     item2 = document.createElement("a");
-                    item2.innerText = addition + properties[index] + ': ' + element;
+                    item2.innerText = "To learn more, click here";
                     item2.addEventListener("click", (event) => {
                         wipePage(document.getElementById("main"));
                         console.log(element);
@@ -123,31 +127,51 @@
 </head>
 <body>
     <div class="topnav">
-        <p class="classes"><a onclick="wipePage(document.getElementById('main')); goFetch('/api/classes')">Classes</a></p>
-        <p class="feats"><a onclick="wipePage(document.getElementById('main')); goFetch('/api/feats')">Feats</a></p><p class="feats">Ability Scores</p>
-        <p class="feats">Alignments</p>
-        <p class="feats">Backgrounds</p>
-        <p class="feats">Damage Types</p>
-        <p class="feats">Conditions</p>
-        <p class="feats">Equipment</p>
-        <p class="feats">Equipment Categories</p>
-        <p class="feats">Features</p>
-        <p class="feats">Languages</p>
-        <p class="feats">Magic Items</p>
-        <p class="feats">Magic Schools</p>
-        <p class="feats">Monsters</p>
-        <p class="feats">Proficiencies</p>
-        <p class="feats">Races</p>
-        <p class="feats">Rule Sections</p>
-        <p class="feats">Rules</p>
-        <p class="feats">Skills</p>
-        <p class="feats">Spells</p>
-        <p class="feats">Subclasses</p>
-        <p class="feats">Subraces</p>
-        <p class="feats">Traits</p>
-        <p class="feats">Weapon Properties</p>
+        <ul class="mainmenu">
+            <li class="menuitem">
+                <a tabindex="0">Character Information</a>
+                <ul>
+                    <li>Feats</li>
+                    <li></li>
+                </ul>
+            </li>
+            <li class="menuitem"></li>
+
+        </ul>
+        <p><a onclick="menubar('/api/classes')">Classes</a></p>
+        <p><a onclick="menubar('/api/feats')">Feats</a></p>
+        <p><a onclick="menubar('/api/ability-scores')">Ability Scores</a></p>
+        <p><a onclick="menubar('/api/alignments')">Alignments</a></p>
+        <p><a onclick="menubar('/api/backgrounds')">Backgrounds</a></p>
+        <p><a onclick="menubar('/api/damage-types')">Damage Types</a></p>
+        <p><a onclick="menubar('/api/conditions')">Conditions</a></p>
+        <p><a onclick="menubar('/api/equipment')">Equipment</a></p>
+        <p><a onclick="menubar('/api/equipment-categories')">Equipment Categories</a></p>
+        <p><a onclick="menubar('/api/features')">Features</a></p>
+        <p><a onclick="menubar('/api/languages')">Languages</a></p>
+        <p><a onclick="menubar('/api/magic-items')">Magic Items</a></p>
+        <p><a onclick="menubar('/api/magic-schools')">Magic Schools</a></p>
+        <p><a onclick="menubar('/api/monsters')">Monsters</a></p>
+        <p><a onclick="menubar('/api/proficiencies')">Proficiencies</a></p>
+        <p><a onclick="menubar('/api/races')">Races</a></p>
+        <p><a onclick="menubar('/api/rule-sections')">Rule Sections</a></p>
+        <p><a onclick="menubar('/api/rules')">Rules</a></p>
+        <p><a onclick="menubar('/api/skills')">Skills</a></p>
+        <p><a onclick="menubar('/api/spells')">Spells</a></p>
+        <p><a onclick="menubar('/api/subclasses')">Subclasses</a></p>
+        <p><a onclick="menubar('/api/subraces')">Subraces</a></p>
+        <p><a onclick="menubar('/api/traits')">Traits</a></p>
+        <p><a onclick="menubar('/api/weapon-properties')">Weapon Properties</a></p>
     </div>
     <div id="main">
+        <p> Click anywhere to start navigating</p>
     </div>
 </body>
+<!--
+Rewrite menu into lists
+    one list for main display
+    each one may or may not have relevant sublists 
+    use tutorial for formatting
+
+-->
 </html>
