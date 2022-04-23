@@ -144,7 +144,8 @@ function wipePage(subject) {
 }
 //takes any string and checks for appropriate uppercase. Removes _ as well
 function modInput(stringIn) {
-
+// if string contains - or _, replace with space.
+    //if string doesn't start with capital letter, make captialized
 }
 /* TO DO list:
  * Figure out how to block things into appropriate divs
