@@ -70,116 +70,7 @@
     }*/ 
 
 </style>
-<script>
-    function menubar(url) {
-        wipePage(document.getElementById('main')); 
-        goFetch(url);
-    }
-    /*
-     * To make it work:
-     * get names of all elements
-     * get values of all elements
-     * FIGURE OUT IF IT'S AN OBJECT
-     * IF SO, BREAK IT IN PIECES
-     * display all as elements
-     * 
-     * 
-     * 
-     * 
-     * 
-     */
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-    window.addEventListener("load", function () {
-       // const myElement = document.querySelector("body");
-       // goFetch("/api/monsters/mimic"); 
-
-    });
-
-    //Takes an object, presents a list of all items
-    function getList(sheet, addition = "") {
-        const myElement = document.getElementById("main");
-        //wipePage(myElement);
-        var names = Object.values(sheet);
-        var properties = Object.keys(sheet);
-        let index = 0;
-        names.forEach(element => {
-            if ((typeof element) == "object") {
-                //check API to view discrepencies
-                let thing = document.createElement("h3");
-                if (properties[index] != 0) {
-                thing.innerText = properties[index];
-            }
-                myElement.appendChild(thing);
-                getList(element/*, (addition + "       ")*/);
-            } else {
-                let item;
-                let item2;
-                element = String(element);
-                if (element.includes("/")) {
-                    item = document.createElement("p");
-                    item2 = document.createElement("a");
-                    item2.innerText = "To learn more, click here";
-                    item2.addEventListener("click", (event) => {
-                        wipePage(document.getElementById("main"));
-                        console.log(element);
-                        goFetch(element);
-                    }
-                        
-                    );
-                    item.appendChild(item2);
-                } else {
-                    item = document.createElement("p");
-                    item.innerText = addition + properties[index] + ': ' + element;
-                }
-                    myElement.appendChild(item);
-                    
-                index++;
-            }
-        })
-
-    }
-    //takes a piece of url, fetches list. If an item is an object, loop. If value is empty, print N/A
-    function goFetch(url) {
-        let source = "https://www.dnd5eapi.co" + url;
-
-        fetch(source)
-            .then((result) => result.json())
-            .then((sheet) => {
-                getList(sheet);
-            });
-                }
-    //
-    //given an element, systematically removes all children from it
-    function wipePage(subject) {
-        while (subject.firstChild) {
-            subject.removeChild(subject.lastChild);
-        }
-    }
-    //takes any string and checks for appropriate uppercase. Removes _ as well
-    function modInput(stringIn) {
-
-    }
-
+<script src="dndcode.js">
 </script>
 <html lang="en">
 
@@ -191,41 +82,40 @@ toggle between hiding and showing the dropdown content */
 <body>
     <div class="topnav">
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Character Information</button>
-            <div id="myDropdown" class="dropdown-content character">
+            <button onclick="Charinfo()" class="dropbtn">Character Information</button>
+            <div id="charInfo" class="dropdown-content character">
                 <a onclick="menubar('/api/classes')">Classes</a>
                 <a onclick="menubar('/api/feats')">Feats</a>
                 <a onclick="menubar('/api/ability-scores')">Ability Scores</a>
                 <a onclick="menubar('/api/alignments')">Alignments</a>
+                <a onclick="menubar('/api/backgrounds')">Backgrounds</a>
+                <a onclick="menubar('/api/features')">Features</a>
+                <a onclick="menubar('/api/languages')">Languages</a>
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Combat</button>
-            <div id="myDropdown" class="dropdown-content combat">
+            <button onclick="Combatinfo()" class="dropbtn">Combat</button>
+            <div id="combatInfo" class="dropdown-content combat">
                 <a onclick="menubar('/api/damage-types')">Damage Types</a>
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Magic</button>
-            <div id="myDropdown" class="dropdown-content magic">
+            <button onclick="Maginfo()" class="dropbtn">Magic</button>
+            <div id="magInfo" class="dropdown-content magic">
                 <a onclick="menubar('/api/damage-types')">Damage Types</a>
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">General Information</button>
-            <div id="myDropdown" class="dropdown-content general">
+            <button onclick="Geninfo()" class="dropbtn">General Information</button>
+            <div id="genInfo" class="dropdown-content general">
                 <a onclick="menubar('/api/damage-types')">Damage Types</a>
             </div>
         </div>
-
-        <p></p>
-        <p><a onclick="menubar('/api/backgrounds')">Backgrounds</a></p>
-        <p></p>
         <p><a onclick="menubar('/api/conditions')">Conditions</a></p>
         <p><a onclick="menubar('/api/equipment')">Equipment</a></p>
         <p><a onclick="menubar('/api/equipment-categories')">Equipment Categories</a></p>
-        <p><a onclick="menubar('/api/features')">Features</a></p>
-        <p><a onclick="menubar('/api/languages')">Languages</a></p>
+        <p></p>
+        <p></p>
         <p><a onclick="menubar('/api/magic-items')">Magic Items</a></p>
         <p><a onclick="menubar('/api/magic-schools')">Magic Schools</a></p>
         <p><a onclick="menubar('/api/monsters')">Monsters</a></p>
