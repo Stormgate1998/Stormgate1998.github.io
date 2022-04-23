@@ -96,6 +96,11 @@ function getList(sheet, addition = "") {
             let item;
             let item2;
             element = String(element);
+            if (properties[index] === "count" || properties[index] === "index") {
+
+            } else {
+
+            
             if (element.includes("/")) {
                 item = document.createElement("p");
                 item2 = document.createElement("a");
@@ -113,7 +118,7 @@ function getList(sheet, addition = "") {
                 item.innerText = addition + properties[index] + ': ' + element;
             }
             myElement.appendChild(item);
-
+            }
             index++;
         }
     })
@@ -153,4 +158,4 @@ function modInput(stringIn) {
  *
  *
  * 
- * /
+ */
