@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <style>
-    .topnav{
+    /* Dropdown Button */
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+                background-color: #ddd
+            }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {
+        display: block;
+    }
+    /*.topnav{
         overflow: hidden;
         position: -webkit-sticky;
         position: sticky;
@@ -19,95 +67,10 @@
         text-decoration: none;
         font-size: 16px;
         background-color: navy;
-    }
+    }*/ 
 
 </style>
-<script>
-    /*
-     * To make it work:
-     * get names of all elements
-     * get values of all elements
-     * FIGURE OUT IF IT'S AN OBJECT
-     * IF SO, BREAK IT IN PIECES
-     * display all as elements
-     * 
-     * 
-     * item.addEventListener("onclick", (event)=>
-     * { event.target.innerHTML = link to next
-     * })
-     * 
-     * 
-     */
-    window.addEventListener("load", function () {
-       // const myElement = document.querySelector("body");
-       // goFetch("/api/monsters/mimic"); 
-
-    });
-
-    //Takes an object, presents a list of all items
-    function getList(sheet, addition = "") {
-        const myElement = document.getElementById("main");
-        //wipePage(myElement);
-        var names = Object.values(sheet);
-        var properties = Object.keys(sheet);
-        let index = 0;
-        names.forEach(element => {
-            if ((typeof element) == "object") {
-                //check API to view discrepencies
-                let thing = document.createElement("h3");
-                if (properties[index] != 0) {
-                thing.innerText = properties[index];
-            }
-                myElement.appendChild(thing);
-                getList(element/*, (addition + "       ")*/);
-            } else {
-                let item;
-                if (properties[index] === "url") {
-                    item = document.createElement("a");
-                    item.innerText = addition + properties[index] + ': ' + element;
-                    item.addEventListener("click", (element) =>{
-                        wipePage(getElementById('main'));//THIS HAS ISSUES
-                        goFetch(element);
-                    }
-                    );
-
-                } else {
-                    item = document.createElement("p");
-                    item.innerText = addition + properties[index] + ': ' + element;
-                }
-                    myElement.appendChild(item);
-                    
-                index++;
-            }
-        })
-
-    }
-    //takes a piece of url, fetches list. If an item is an object, loop. If value is empty, print N/A
-    function goFetch(url) {
-        let source = "https://www.dnd5eapi.co" + url;
-
-        fetch(source)
-            .then((result) => result.json())
-            .then((sheet) => {
-                getList(sheet);
-            });
-                }
-    //
-    //given an element, systematically removes all children from it
-    function wipePage(subject) {
-        while (subject.firstChild) {
-            subject.removeChild(subject.lastChild);
-        }
-    }
-    //takes any string and checks for appropriate uppercase. Removes _ as well
-    function modInput(stringIn) {
-
-    }
-
-    //url function
-    //if properties[index] == url
-    //add an event listener onclick.
-    //triggers goFetch with included url.
+<script src="dndcode.js">
 </script>
 <html lang="en">
 
@@ -118,31 +81,56 @@
 </head>
 <body>
     <div class="topnav">
-        <p class="classes"><a onclick="wipePage(getElementById('main')); goFetch('/api/classes')">Classes</a></p>
-        <p class="feats"><a onclick="wipePage(getElementById('main')); goFetch('/api/feats')">Feats</a></p><p class="feats">Ability Scores</p>
-        <p class="feats">Alignments</p>
-        <p class="feats">Backgrounds</p>
-        <p class="feats">Damage Types</p>
-        <p class="feats">Conditions</p>
-        <p class="feats">Equipment</p>
-        <p class="feats">Equipment Categories</p>
-        <p class="feats">Features</p>
-        <p class="feats">Languages</p>
-        <p class="feats">Magic Items</p>
-        <p class="feats">Magic Schools</p>
-        <p class="feats">Monsters</p>
-        <p class="feats">Proficiencies</p>
-        <p class="feats">Races</p>
-        <p class="feats">Rule Sections</p>
-        <p class="feats">Rules</p>
-        <p class="feats">Skills</p>
-        <p class="feats">Spells</p>
-        <p class="feats">Subclasses</p>
-        <p class="feats">Subraces</p>
-        <p class="feats">Traits</p>
-        <p class="feats">Weapon Properties</p>
+        <div class="dropdown">
+            <button onclick="Charinfo()" class="dropbtn char">Character Information</button>
+            <div id="charInfo" class="dropdown-content character">
+                <a onclick="menubar('/api/classes')">Classes</a>
+                <a onclick="menubar('/api/feats')">Feats</a>
+                <a onclick="menubar('/api/ability-scores')">Ability Scores</a>
+                <a onclick="menubar('/api/alignments')">Alignments</a>
+                <a onclick="menubar('/api/backgrounds')">Backgrounds</a>
+                <a onclick="menubar('/api/features')">Features</a>
+                <a onclick="menubar('/api/languages')">Languages</a>
+                <a onclick="menubar('/api/proficiencies')">Proficiencies</a>
+                <a onclick="menubar('/api/traits')">Traits</a>
+                <a onclick="menubar('/api/subraces')">Subraces</a>
+                <a onclick="menubar('/api/subclasses')">Subclasses</a>
+                <a onclick="menubar('/api/skills')">Skills</a>
+                <a onclick="menubar('/api/races')">Races</a>
+                
+
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="Combatinfo()" class="dropbtn com">Combat</button>
+            <div id="combatInfo" class="dropdown-content combat">
+                <a onclick="menubar('/api/damage-types')">Damage Types</a>
+                <a onclick="menubar('/api/weapon-properties')">Weapon Properties</a>
+                <a onclick="menubar('/api/monsters')">Monsters</a>
+                <a onclick="menubar('/api/conditions')">Conditions</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="Maginfo()" class="dropbtn mag">Magic</button>
+            <div id="magInfo" class="dropdown-content magIc">
+                <a onclick="menubar('/api/spells')">Spells</a>
+                <a onclick="menubar('/api/magic-items')">Magic Items</a>
+                <a onclick="menubar('/api/magic-schools')">Magic Schools</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="Geninfo()" class="dropbtn gen">General Information</button>
+            <div id="genInfo" class="dropdown-content general">
+                <a onclick="menubar('/api/rules')">Rules</a>
+                <a onclick="menubar('/api/rule-sections')">Rule Sections</a>
+                <a onclick="menubar('/api/equipment')">Equipment</a>
+                <a onclick="menubar('/api/equipment-categories')">Equipment Categories</a>
+            </div>
+        </div>
     </div>
     <div id="main">
+        <p> Click any button to start navigating</p>
     </div>
 </body>
+
 </html>
