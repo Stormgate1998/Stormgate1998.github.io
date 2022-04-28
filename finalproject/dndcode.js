@@ -148,9 +148,12 @@ function modInput(stringIn) {
 
 function arrayList(subject) {
     let container;
-    subject.forEach(function () {
+    const myElement = document.getElementById("main");
+    subject.forEach(function (currval) {
         container = document.createElement("div");
+        for (let props in currval) {
 
+        }
     });
 }
 /* TO DO list:
