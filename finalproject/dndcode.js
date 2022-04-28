@@ -178,5 +178,5 @@ function arrayList(subject) {
  * 
  * Make everything look nice
  *
- * 
+ * prevent repeating elements
  */
