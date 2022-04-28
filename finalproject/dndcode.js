@@ -3,21 +3,6 @@ function menubar(url) {
     goFetch(url);
 }
 var currenturl;
-/*
- * To make it work:
- * get names of all elements
- * get values of all elements
- * FIGURE OUT IF IT'S AN OBJECT
- * IF SO, BREAK IT IN PIECES
- * display all as elements
- * 
- * 
- * 
- * Take each of the two functions
- * Make 4 of each
- * customize accordingly
- * 
- */
 
 
 /* When the user clicks on the button,
