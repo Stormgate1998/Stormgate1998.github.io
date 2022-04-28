@@ -116,7 +116,15 @@ function getList(sheet, addition = "") {
                 item.appendChild(item2);
             } else {
                 item = document.createElement("p");
-                item.innerText = addition + properties[index] + ': ' + element;
+                let stringInput;
+                if (properties[index] == 0) {
+                    stringInput = element;
+                    stringInput = stringInput;
+                } else {
+                    stringInput = addition + properties[index] + ': ' + element;
+                    stringInput = stringInput;
+                }
+                item.innerText = stringInput;
             }
             myElement.appendChild(item);
             }
@@ -144,8 +152,20 @@ function wipePage(subject) {
 }
 //takes any string and checks for appropriate uppercase. Removes _ as well
 function modInput(stringIn) {
+    stringIn = String(stringIn);
+    stringIn = stringIn.replace("-", " ");
+    stringIn = stringIn.replace("_", " ");
+    stringIn.charAt(0).toUpperCase();
 // if string contains - or _, replace with space.
     //if string doesn't start with capital letter, make captialized
+}
+
+function arrayList(subject) {
+    let container;
+    subject.forEach(function () {
+        container = document.createElement("div");
+
+    });
 }
 /* TO DO list:
  * Figure out how to block things into appropriate divs
@@ -158,6 +178,5 @@ function modInput(stringIn) {
  * 
  * Make everything look nice
  *
- *if url matches current url, ignore it.
  * 
  */
