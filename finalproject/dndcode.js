@@ -76,7 +76,7 @@ window.onclick = function (event) {
         }
     }
 }
-
+let h3limit;
 //Takes an object, presents a list of all items
 function getList(sheet, addition = "") {
     const myElement = document.getElementById("main");
@@ -88,8 +88,9 @@ function getList(sheet, addition = "") {
         if ((typeof element) == "object") {
             //check API to view discrepencies
             let thing = document.createElement("h3");
-            if (properties[index] != 0) {
+            if (properties[index] != 0 && properties[index] != h3limit) {
                 thing.innerText = properties[index];
+                h3limit = properties[index];
             }
             myElement.appendChild(thing);
             getList(element/*, (addition + "       ")*/);
