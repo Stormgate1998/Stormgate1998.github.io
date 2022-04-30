@@ -75,13 +75,20 @@ function getList(sheet, myElement = mainObj) {
     names.forEach(element => {
         if ((typeof element) == "object") {
             //check API to view discrepencies
-            let thing = document.createElement("h3");
+            const divider = document.createElement("div");
+            if (myElement.id === "content") {
+                divider.classList.add("content-child");
+            } else {
+                divider.setAttribute("id", "content");
+            }
+            const thing = document.createElement("h3");
             if (properties[index] != 0 && properties[index] != h3limit) {
                 thing.innerText = properties[index];
                 h3limit = properties[index];
             }
-            myElement.appendChild(thing);
-            getList(element);
+            divider.appendChild(thing);
+            getList(element, divider);
+            myElement.appendChild(divider);
         } else {
             let item;
             let item2;
