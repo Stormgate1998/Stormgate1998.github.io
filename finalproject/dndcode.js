@@ -3,7 +3,7 @@ function menubar(url) {
     goFetch(url);
 }
 var currenturl;
-
+mainObj = document.getElementById("main");
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -63,8 +63,11 @@ window.onclick = function (event) {
 }
 let h3limit;
 //Takes an object, presents a list of all items
-function getList(sheet, addition = "") {
-    const myElement = document.getElementById("main");
+function getList(sheet, myElement = mainObj) {
+    if (myElement === null) {
+        myElement = document.getElementById("main");
+    }
+
     //wipePage(myElement);
     var names = Object.values(sheet);
     var properties = Object.keys(sheet);
@@ -78,7 +81,7 @@ function getList(sheet, addition = "") {
                 h3limit = properties[index];
             }
             myElement.appendChild(thing);
-            getList(element/*, (addition + "       ")*/);
+            getList(element);
         } else {
             let item;
             let item2;
@@ -107,7 +110,7 @@ function getList(sheet, addition = "") {
                     stringInput = element;
                     stringInput = stringInput;
                 } else {
-                    stringInput = addition + properties[index] + ': ' + element;
+                    stringInput = properties[index] + ': ' + element;
                     stringInput = stringInput;
                 }
                 item.innerText = stringInput;
