@@ -83,7 +83,7 @@
 <body>
     <div class="topnav">
         <div class="dropdown">
-            <button onclick="Charinfo()" class="dropbtn char">Character Information</button>
+            <button class="dropbtn char" id="char" >Character Information</button>
             <div id="charInfo" class="dropdown-content character">
                 <a onclick="menubar('/api/classes')">Classes</a>
                 <a onclick="menubar('/api/feats')">Feats</a>
@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="Combatinfo()" class="dropbtn com">Combat</button>
+            <button class="dropbtn com" id="com">Combat</button>
             <div id="combatInfo" class="dropdown-content combat">
                 <a onclick="menubar('/api/damage-types')">Damage Types</a>
                 <a onclick="menubar('/api/weapon-properties')">Weapon Properties</a>
@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="Maginfo()" class="dropbtn mag">Magic</button>
+            <button class="dropbtn mag" id="mag">Magic</button>
             <div id="magInfo" class="dropdown-content magIc">
                 <a onclick="menubar('/api/spells')">Spells</a>
                 <a onclick="menubar('/api/magic-items')">Magic Items</a>
@@ -120,7 +120,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button onclick="Geninfo()" class="dropbtn gen">General Information</button>
+            <button class="dropbtn gen" id="gen">General Information</button>
             <div id="genInfo" class="dropdown-content general">
                 <a onclick="menubar('/api/rules')">Rules</a>
                 <a onclick="menubar('/api/rule-sections')">Rule Sections</a>
