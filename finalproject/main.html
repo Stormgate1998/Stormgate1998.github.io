@@ -59,7 +59,6 @@
         display: flex;
         align-items: center;
     }
-
     .topnav p{
         float: left;
         color: aqua;
@@ -67,7 +66,7 @@
         text-decoration: none;
         font-size: 16px;
         background-color: navy;
-    }*/ 
+    }*/
 
 </style>
 <script src="dndcode.js">
@@ -83,7 +82,7 @@
 <body>
     <div class="topnav">
         <div class="dropdown">
-            <button class="dropbtn char" id="char" >Character Information</button>
+            <button onclick="Charinfo()" class="dropbtn char">Character Information</button>
             <div id="charInfo" class="dropdown-content character">
                 <a onclick="menubar('/api/classes')">Classes</a>
                 <a onclick="menubar('/api/feats')">Feats</a>
@@ -98,12 +97,12 @@
                 <a onclick="menubar('/api/subclasses')">Subclasses</a>
                 <a onclick="menubar('/api/skills')">Skills</a>
                 <a onclick="menubar('/api/races')">Races</a>
-                
+
 
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn com" id="com">Combat</button>
+            <button onclick="Combatinfo()" class="dropbtn com">Combat</button>
             <div id="combatInfo" class="dropdown-content combat">
                 <a onclick="menubar('/api/damage-types')">Damage Types</a>
                 <a onclick="menubar('/api/weapon-properties')">Weapon Properties</a>
@@ -112,7 +111,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn mag" id="mag">Magic</button>
+            <button onclick="Maginfo()" class="dropbtn mag">Magic</button>
             <div id="magInfo" class="dropdown-content magIc">
                 <a onclick="menubar('/api/spells')">Spells</a>
                 <a onclick="menubar('/api/magic-items')">Magic Items</a>
@@ -120,7 +119,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn gen" id="gen">General Information</button>
+            <button onclick="Geninfo()" class="dropbtn gen">General Information</button>
             <div id="genInfo" class="dropdown-content general">
                 <a onclick="menubar('/api/rules')">Rules</a>
                 <a onclick="menubar('/api/rule-sections')">Rule Sections</a>
