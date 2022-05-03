@@ -77,7 +77,7 @@ function getList(sheet, myElement = mainObj) {
             //check API to view discrepencies
             const divider = document.createElement("div");
             if (myElement.id === "content") {
-                divider.classList.add("content-child");
+                divider.classList.add("contentchild");
             } else {
                 divider.setAttribute("id", "content");
             }
@@ -98,7 +98,7 @@ function getList(sheet, myElement = mainObj) {
             } else {
 
             
-            if (element.includes("/")) {
+                if (element.includes("/") && element != "Antipathy/Sympathy" && element != "Blindness/Deafness") {
                 item = document.createElement("p");
                 item2 = document.createElement("a");
                 item2.innerText = "To learn more, click here";

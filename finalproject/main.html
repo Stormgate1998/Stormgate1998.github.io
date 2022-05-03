@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <style>
+    body {
+        background-color: darkgreen;
+    }
+
     /* Dropdown Button */
     .dropbtn {
         background-color: #3498DB;
@@ -68,10 +72,22 @@
         background-color: navy;
     }
         */
-    #content{
-
+    #content {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    .contentchild {
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: royalblue;
+        color: silver;
+        margin: 5px;
+    }
+    .contentchild a{
+        cursor: pointer;
     }
 
+   
 </style>
 <script src="dndcode.js">
 </script>
