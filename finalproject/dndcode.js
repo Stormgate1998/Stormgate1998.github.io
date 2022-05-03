@@ -18,6 +18,10 @@ function Combatinfo() {
     document.getElementById("genInfo").classList.toggle("show");
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
     if (!event.target.matches('.char')) {
@@ -86,7 +90,7 @@ function getList(sheet, myElement = mainObj) {
                 thing.innerText = properties[index];
                 h3limit = properties[index];
             }
-            divider.appendChild(thing);
+            myElement.appendChild(thing);
             getList(element, divider);
             myElement.appendChild(divider);
         } else {
@@ -117,7 +121,7 @@ function getList(sheet, myElement = mainObj) {
                     stringInput = element;
                     stringInput = stringInput;
                 } else {
-                    stringInput = properties[index] + ': ' + element;
+                    stringInput = capitalizeFirstLetter(properties[index]) + ': ' + capitalizeFirstLetter(element) + "  ";
                     stringInput = stringInput;
                 }
                 item.innerText = stringInput;
