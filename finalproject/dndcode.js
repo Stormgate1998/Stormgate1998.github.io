@@ -5,6 +5,10 @@ function menubar(url) {
 var currenturl;
 mainObj = document.getElementById("main");
 
+
+
+
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function Charinfo() {
@@ -89,6 +93,11 @@ function getList(sheet, myElement = mainObj) {
             if (properties[index] != 0 && properties[index] != h3limit) {
                 thing.innerText = properties[index];
                 h3limit = properties[index];
+                thing.addEventListener("click", function () {
+                    if (event.target.style != "background-color: chartreuse") {
+                        event.target.style = "background-color: chartreuse";
+                    }
+                });
             }
             myElement.appendChild(thing);
             getList(element, divider);

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <style>
     body {
-        background-color: darkgreen;
+        background-color: black;
         font-family: sans-serif;
+        color: white;
+    }
+    a {
+        cursor: pointer;
     }
 
     /* Dropdown Button */
     .dropbtn {
-        background-color: royalblue;
+        background-color: darkblue;
         color: white;
         padding: 16px;
         font-size: 16px;
@@ -17,7 +21,7 @@
 
         /* Dropdown button on hover & focus */
         .dropbtn:hover, .dropbtn:focus {
-            background-color: #2980B9;
+            background-color: chartreuse;
         }
 
     /* The container <div> - needed to position the dropdown content */
@@ -71,26 +75,62 @@
               Install max size of divs in all settings
 
           */
-    #content {
-        position: relative;
-        display: inline-grid;
-        grid-template-columns: auto auto auto auto;
+    @media screen and (min-width: 320px) {
+        .dropbtn {
+            background-color: darkblue;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            height: 80px;
+        }
+        #content {
+            position: relative;
+            display: inline-grid;
+            grid-template-columns: auto;
+        }
+
+        .contentchild {
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: darkblue;
+            color: silver;
+            margin: 5px;
+        }
+
+            .contentchild p {
+                margin: 3px;
+            }
     }
-    .contentchild {
-        border: 2px solid black;
-        border-radius: 5px;
-        background-color: royalblue;
-        color: silver;
-        margin: 5px;
-        max-width: 500px;
-    }
-    .contentchild p{
-        margin: 10px;
-    }
-    a{
-        cursor: pointer;
+    @media screen and (min-width: 550px) {
+        #content {
+            position: relative;
+            display: inline-grid;
+            grid-template-columns: auto auto auto auto;
+        }
     }
 
+        @media screen and (min-width: 750px) {
+            #content {
+                position: relative;
+                display: inline-grid;
+                grid-template-columns: auto auto auto auto auto;
+            }
+
+            .contentchild {
+                border: 2px solid black;
+                border-radius: 5px;
+                background-color: darkblue;
+                color: silver;
+                margin: 5px;
+            }
+
+                .contentchild p {
+                    margin: 10px;
+                }
+        }
+        
    
 </style>
 <script src="dndcode.js">
